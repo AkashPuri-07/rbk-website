@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title id="pageTitle">Product Details | RBK ENTERPRISES</title>
+<meta id="pageDesc" name="description" content="Wholesale furniture and electronics from RBK ENTERPRISES, Bihar Sharif. Call +91 79772 32219 or ask on WhatsApp for today's price." />
+<meta name="robots" content="index, follow" />
+<meta name="geo.region" content="IN-BR" />
+<meta name="geo.placename" content="Bihar Sharif, Nalanda, Bihar" />
+<link rel="icon" type="image/png" href="logo.png" />
+<link rel="apple-touch-icon" href="logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; font-family: 'IBM Plex Sans', system-ui, sans-serif; background:#F4F6FA; color:#0A1628; }
+  .display { font-family: 'Archivo', sans-serif; letter-spacing: -0.03em; }
+  .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; }
+  .stockcard { position: relative; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+  .stockcard:hover { transform: translateY(-4px); border-color: #1B4DA0; box-shadow: 0 18px 40px -18px rgba(10,22,40,.45); }
+  a:focus-visible, button:focus-visible { outline: 3px solid #E0952A; outline-offset: 2px; border-radius: 4px; }
+  .bg-ink{background:#0A1628} .bg-paper{background:#F4F6FA} .bg-wa{background:#128C4A}
+  .text-ink{color:#0A1628} .text-trade{color:#1B4DA0} .text-navy{color:#12294D}
+  .text-navy-45{color:rgba(18,41,77,.45)} .text-navy-55{color:rgba(18,41,77,.55)} .text-navy-60{color:rgba(18,41,77,.6)}
+  .text-navy-70{color:rgba(18,41,77,.7)} .text-navy-75{color:rgba(18,41,77,.75)} .text-gold{color:#E0952A} .text-gold2{color:#F7C462}
+  .border-line{border-color:#DCE2ED} .bg-white95{background:rgba(255,255,255,.95)}
+  .max-w-7xl{max-width:80rem} .max-w-xl{max-width:36rem}
+</style>
+</head>
+<body class="antialiased">
+
+<div class="bg-ink text-white/70 text-[11px]" style="font-family:'IBM Plex Mono',monospace;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between gap-4">
+    <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-gold"></i>9:30 AM &ndash; 8:30 PM &middot; OPEN 7 DAYS</span>
+    <span class="hidden sm:flex items-center gap-1.5"><i data-lucide="badge-check" class="w-3.5 h-3.5 text-gold"></i>GSTIN 10ANOPA9621L1Z1</span>
+  </div>
+</div>
+
+<header class="sticky top-0 z-50 bg-white95 border-b border-line" style="backdrop-filter:blur(8px);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-[68px]">
+      <a href="./index.html" class="flex items-center gap-3 shrink-0">
+        <img src="logo.png" alt="RBK Enterprises logo" class="h-10 w-10 object-contain" />
+        <span class="leading-none">
+          <span class="display block text-[19px] font-extrabold text-ink">RBK ENTERPRISES</span>
+          <span class="block text-[10px] tracking-[0.14em] text-trade uppercase mt-0.5" style="font-family:'IBM Plex Mono',monospace;">Your Comfort, Our Priority</span>
+        </span>
+      </a>
+      <div class="flex items-center gap-2">
+        <a href="tel:+917977232219" class="hidden sm:flex items-center gap-2 h-10 px-4 rounded-md border border-line text-navy text-sm font-semibold hover:border-trade hover:text-trade transition">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          <span style="font-family:'IBM Plex Mono',monospace;" class="text-[13px]">79772 32219</span>
+        </a>
+        <button onclick="inquireGeneral()" class="flex items-center gap-2 h-10 px-4 rounded-md bg-wa text-white text-sm font-semibold hover:bg-[#0e7a40] transition">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Ask us</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+
+  <nav aria-label="Breadcrumb" class="flex items-center gap-1.5 text-[13px] text-navy-55 mb-6 flex-wrap">
+    <a href="index.html" class="hover:text-trade transition">Home</a>
+    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+    <span id="crumbCat" class="hover:text-trade transition">Products</span>
+    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+    <span id="crumbName" class="text-navy-75 font-medium">&hellip;</span>
+  </nav>
+
+  <div id="loadingBox" class="py-20 text-center text-navy-55">
+    <i data-lucide="loader" class="w-6 h-6 mx-auto animate-spin text-trade"></i>
+    <p class="mt-3 text-[14px]">Loading product&hellip;</p>
+  </div>
+
+  <div id="notFoundBox" class="hidden py-20 text-center">
+    <p class="display text-2xl font-extrabold text-ink">Product not found</p>
+    <p class="text-navy-55 mt-2 text-[14px]">This product may have been removed or the link is incorrect.</p>
+    <a href="index.html" class="inline-flex mt-6 items-center gap-2 h-11 px-5 rounded-md bg-wa text-white font-semibold">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to catalog
+    </a>
+  </div>
+
+  <div id="detailBox" class="hidden grid lg:grid-cols-12 gap-10">
+    <div class="lg:col-span-5">
+      <div class="rounded-lg border border-line bg-white overflow-hidden sticky top-24">
+        <div class="relative h-80 sm:h-96 grid place-items-center bg-white border-b border-line">
+          <img id="prodImg" src="" alt="" class="w-full h-full object-contain p-8" loading="lazy" />
+          <span id="prodCode" class="absolute top-4 left-4 font-mono text-[11px] font-semibold bg-ink text-white px-2.5 py-1 rounded"></span>
+        </div>
+        <div id="prodBrands" class="p-4 flex flex-wrap gap-1.5"></div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7">
+      <p id="prodCatLabel" class="eyebrow text-trade">Electronics &amp; Appliances</p>
+      <h1 id="prodName" class="display text-[30px] sm:text-[38px] font-extrabold mt-2 leading-tight">&nbsp;</h1>
+
+      <div class="mt-4 rounded-lg border border-line bg-white p-4 inline-flex flex-col">
+        <span id="prodPrice" class="font-mono text-[15px] font-semibold text-ink"></span>
+        <span class="block text-[11px] text-navy-45 mt-0.5">Indicative range, excludes GST &middot; ask on WhatsApp for today's rate</span>
+      </div>
+
+      <p id="prodDesc" class="text-[15px] text-navy-70 leading-relaxed mt-6 max-w-xl"></p>
+
+      <div class="mt-6 rounded-lg border border-line bg-white p-4">
+        <p class="text-[13px] text-navy-60 leading-relaxed">
+          <i data-lucide="shield-check" class="w-4 h-4 text-trade inline -mt-1 mr-1"></i>
+          Warranty as per this product's manufacturer guidelines. Proper GST bill on every purchase.
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-3">
+        <button onclick="inquireThis()" class="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-md bg-wa text-white font-semibold hover:bg-[#0e7a40] active:scale-[.98] transition">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          Ask price on WhatsApp
+        </button>
+        <a href="tel:+917977232219" class="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-md border border-line text-navy font-semibold hover:border-trade hover:text-trade transition">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          Call +91 79772 32219
+        </a>
+      </div>
+      <p class="text-[12px] text-navy-45 mt-3">Available to view in our Sherpur showroom, open 9:30 AM &ndash; 8:30 PM, all 7 days.</p>
+    </div>
+  </div>
+
+  <section id="relatedSection" class="hidden mt-16 pt-10 border-t border-line">
+    <h2 class="display text-2xl font-extrabold">More like this</h2>
+    <div id="relatedGrid" class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+  </section>
+
+</main>
+
+<footer class="bg-ink text-white/60 pt-14 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid md:grid-cols-12 gap-10 pb-10 border-b border-white/10">
+      <div class="md:col-span-5">
+        <div class="flex items-center gap-3">
+          <img src="logo.png" alt="RBK Enterprises logo" class="h-10 w-10 object-contain bg-white rounded p-1" />
+          <span>
+            <span class="display block text-white text-[18px] font-extrabold">RBK ENTERPRISES</span>
+            <span class="block eyebrow text-gold2 mt-0.5">Your Comfort, Our Priority</span>
+          </span>
+        </div>
+        <p class="text-[14px] leading-relaxed mt-5 max-w-sm">
+          Furniture and electronics for homes across Bihar Sharif and Nalanda. Visit our showroom in Sherpur &mdash; open seven days a week.
+        </p>
+      </div>
+      <div class="md:col-span-3">
+        <h4 class="eyebrow text-white/40">Browse</h4>
+        <ul class="mt-4 space-y-2.5 text-[14px]">
+          <li><a href="./index.html#catalog" class="hover:text-gold2 transition">Products</a></li>
+          <li><a href="./index.html#brands" class="hover:text-gold2 transition">Brands</a></li>
+          <li><a href="./index.html#why" class="hover:text-gold2 transition">Why RBK</a></li>
+          <li><a href="./index.html#contact" class="hover:text-gold2 transition">Visit us</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-4">
+        <h4 class="eyebrow text-white/40">Reach us</h4>
+        <ul class="mt-4 space-y-2.5 text-[14px]" style="font-family:'IBM Plex Mono',monospace;">
+          <li><a href="tel:+917977232219" class="hover:text-gold2 transition">+91 79772 32219</a></li>
+          <li><a href="tel:+919264482283" class="hover:text-gold2 transition">+91 92644 82283</a></li>
+          <li><a href="mailto:rbk.nalanda@gmail.com" class="hover:text-gold2 transition break-all">rbk.nalanda@gmail.com</a></li>
+          <li class="text-white/45">GSTIN 10ANOPA9621L1Z1</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px]" style="font-family:'IBM Plex Mono',monospace;">
+      <p>&copy; <span id="year">2026</span> RBK ENTERPRISES &middot; BIHAR SHARIF, BIHAR</p>
+      <p class="text-white/35">FURNITURE &amp; ELECTRONICS &middot; OPEN 7 DAYS</p>
+    </div>
+  </div>
+</footer>
+
+<button onclick="inquireGeneral()" aria-label="Chat with RBK Enterprises on WhatsApp"
+        class="fixed bottom-5 right-5 z-50 flex items-center gap-2 h-14 px-5 rounded-full bg-wa text-white font-semibold shadow-2xl hover:bg-[#0e7a40] hover:scale-105 active:scale-95 transition">
+  <i data-lucide="message-circle" class="w-5 h-5"></i>
+  <span class="hidden sm:inline text-[15px]">WhatsApp us</span>
+</button>
+
+<script>
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRF4rxrVe4MHCGhgQhKD-To4E36Bg2tpnIuyx8I-nfcLg20b4tjN0s8Ain1xQJivGtLyXCLW_yiQVJS/pub?output=csv";
+const WHATSAPP_NUMBER = "917977232219";
+
+function slugify(str) {
+  return String(str).toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+function driveDirectLink(url) {
+  if (!url) return '';
+  const m = String(url).match(/\/d\/([a-zA-Z0-9_-]+)/) || String(url).match(/[?&]id=([a-zA-Z0-9_-]+)/);
+  if (m && m[1]) return `https://drive.google.com/uc?export=view&id=${m[1]}`;
+  return url;
+}
+function openWhatsApp(msg) {
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+function inquireGeneral() {
+  openWhatsApp("Hello RBK ENTERPRISES,\n\nI would like to know more about your products.\n\nMy name: \nMy area: \n\nThank you.");
+}
+
+const params = new URLSearchParams(window.location.search);
+const targetSlug = slugify(params.get('slug') || '');
+
+let currentProduct = null;
+
+function inquireThis() {
+  if (!currentProduct) return inquireGeneral();
+  const msg = `Hello RBK ENTERPRISES,\n\nI saw this on your website and would like to know the price and availability.\n\nProduct: ${currentProduct.name}\n\nMy name: \nMy area: \n\nThank you.`;
+  openWhatsApp(msg);
+}
+
+function fmtPrice(price) {
+  if (!price || !price[0] || !price[1]) return 'Ask for price';
+  return '\u20b9' + price[0].toLocaleString('en-IN') + ' \u2013 \u20b9' + price[1].toLocaleString('en-IN');
+}
+
+function brandTagsHTML(list) {
+  return list.map(b => `<span class="font-mono text-[11px] px-2 py-1 uppercase tracking-wide bg-paper border border-line text-navy-70 rounded">${b}</span>`).join('');
+}
+
+function relatedCardHTML(p) {
+  return `
+  <a href="product.html?slug=${encodeURIComponent(p.slug)}" class="stockcard group bg-white border border-line rounded-lg overflow-hidden flex flex-col">
+    <div class="relative bg-paper h-36 border-b border-line overflow-hidden">
+      <img src="${p.img || 'logo.png'}" alt="${p.name}" class="w-full h-full object-contain p-3 group-hover:scale-[1.04] transition-transform duration-300" loading="lazy" />
+    </div>
+    <div class="p-3.5">
+      <h3 class="display text-[14px] font-bold leading-snug">${p.name}</h3>
+      <p class="text-[12px] text-navy-55 mt-1 font-mono">${fmtPrice(p.price)}</p>
+    </div>
+  </a>`;
+}
+
+Papa.parse(SHEET_CSV_URL, {
+  download: true,
+  header: true,
+  skipEmptyLines: true,
+  complete: (results) => {
+    const rows = results.data || [];
+    const items = rows.map((row, i) => {
+      const name = (row.ProductName || '').trim();
+      if (!name) return null;
+      const catRaw = (row.Category || '').trim().toLowerCase();
+      const cat = catRaw.includes('furn') ? 'furniture' : 'electronics';
+      const priceMin = parseInt(row.PriceMin, 10);
+      const priceMax = parseInt(row.PriceMax, 10);
+      const brands = (row.Brands || row.Brand || '').split(',').map(b => b.trim()).filter(Boolean);
+      const slug = (row.Slug && row.Slug.trim()) ? slugify(row.Slug) : slugify(name);
+      return {
+        cat, name, slug,
+        img: driveDirectLink(row.ImageURL),
+        brands: brands.length ? brands : ['RBK'],
+        spec: (row.Description || '').trim(),
+        price: (priceMin && priceMax) ? [priceMin, priceMax] : null
+      };
+    }).filter(Boolean);
+
+    const found = items.find(p => p.slug === targetSlug);
+    document.getElementById('loadingBox').classList.add('hidden');
+
+    if (!found) {
+      document.getElementById('notFoundBox').classList.remove('hidden');
+      createIcons();
+      return;
+    }
+
+    currentProduct = found;
+    document.title = `${found.name} Price in Bihar Sharif | RBK ENTERPRISES`;
+    document.getElementById('pageDesc').setAttribute('content', found.spec || `${found.name} available at RBK Enterprises, Bihar Sharif.`);
+    document.getElementById('crumbCat').textContent = found.cat === 'furniture' ? 'Furniture' : 'Electronics & Appliances';
+    document.getElementById('crumbName').textContent = found.name;
+    document.getElementById('prodImg').src = found.img || 'logo.png';
+    document.getElementById('prodImg').alt = `${found.name} at RBK Enterprises, Bihar Sharif`;
+    document.getElementById('prodCode').textContent = found.slug.slice(0, 10).toUpperCase();
+    document.getElementById('prodBrands').innerHTML = brandTagsHTML(found.brands);
+    document.getElementById('prodCatLabel').textContent = found.cat === 'furniture' ? 'Furniture' : 'Electronics & Appliances';
+    document.getElementById('prodName').textContent = found.name;
+    document.getElementById('prodPrice').textContent = fmtPrice(found.price);
+    document.getElementById('prodDesc').textContent = found.spec || 'Ask us on WhatsApp for full details on this product.';
+    document.getElementById('detailBox').classList.remove('hidden');
+
+    const related = items.filter(p => p.cat === found.cat && p.slug !== found.slug).slice(0, 4);
+    if (related.length) {
+      document.getElementById('relatedGrid').innerHTML = related.map(relatedCardHTML).join('');
+      document.getElementById('relatedSection').classList.remove('hidden');
+    }
+    createIcons();
+  },
+  error: () => {
+    document.getElementById('loadingBox').classList.add('hidden');
+    document.getElementById('notFoundBox').classList.remove('hidden');
+    createIcons();
+  }
+});
+
+function createIcons() { if (window.lucide) lucide.createIcons(); }
+document.getElementById('year').textContent = new Date().getFullYear();
+createIcons();
+</script>
+</body>
+</html>
