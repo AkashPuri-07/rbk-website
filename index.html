@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XR2Z1H58EE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XR2Z1H58EE');
+</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>RBK ENTERPRISES \u2014 Furniture &amp; Electronics Store in Bihar Sharif, Nalanda</title>
@@ -461,6 +469,11 @@ My name:
 My area: 
 
 Thank you.`;
+  if (typeof gtag === 'function') {
+    gtag('event', 'whatsapp_inquiry', {
+      'inquiry_type': 'general'
+    });
+  }
   openWhatsApp(msg);
 }
 
@@ -632,6 +645,14 @@ My name:
 My area: 
 
 Thank you.`;
+  if (typeof gtag === 'function') {
+    gtag('event', 'whatsapp_inquiry', {
+      'inquiry_type': 'product',
+      'item_code': p.code,
+      'product_name': p.name,
+      'product_category': p.cat
+    });
+  }
   openWhatsApp(msg);
 }
 
