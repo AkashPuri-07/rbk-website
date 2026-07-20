@@ -547,7 +547,7 @@ function slugify(str) {
 function driveDirectLink(url) {
   if (!url) return '';
   const m = String(url).match(/\/d\/([a-zA-Z0-9_-]+)/) || String(url).match(/[?&]id=([a-zA-Z0-9_-]+)/);
-  if (m && m[1]) return `https://drive.google.com/uc?export=view&id=${m[1]}`;
+  if (m && m[1]) return `https://drive.google.com/thumbnail?id=${m[1]}&sz=w1000`;
   return url; // already a direct link or some other image host
 }
 
